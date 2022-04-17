@@ -1,0 +1,81 @@
+creat database store;
+use store;
+create table countries(
+codee int,
+namee  varchar(20),
+continent_name varchar(20));
+use store;
+create table users(
+id int primary key,
+full_name varchar(29),
+email varchar(20) unique,
+gender char(1) check(gender= "m" or gender="f"),
+date_of_birth varchar(15),
+created_at datetime,
+country_code int,
+foreign key(country_code) references customer(code));
+use store;
+create table orders(
+id int primary key,
+user_id int,
+status varchar(6),
+created_at datetime,
+foreign key (user_id) references users(id));
+use store;
+create table order_products(
+order_id int,
+product_id varchar(20),
+quantity int default 0,
+primary key(order_id,product_id),
+foreign key(order_id)references orders(id),
+foreign key (product_id) references product(id));
+use store;
+create table products(
+id int primary key,
+namee varchar(10) not null,
+price int default 0 ,
+statuss varchar(10) check (statis ='valid' or 'expired'),
+created_at datetime);
+use store;
+
+create table products(
+id int primary key,
+name varchar(10) not null,
+price int default 0 ,
+status varchar(10) check (status ='valid' or status='expired'),
+created_at datetime);
+use store;
+
+(
+use store;
+insert into countries values(111,"trook","midlest");
+insert into users values(335,"turkii","turki2016@gmail.com","m",1997,3,564);
+insert into orders values(88,4,'start',2);
+insert into producst values(5,"ttr",5,"valid",4);
+insert into orders_products values(5,7,2);
+use store;
+update countries set name="turki" where id=111;
+delete from products where id =5;
+use store;
+alter taple countries
+add degree_turki int;
+use store;
+alter table users
+add turkiuser varchar(225);
+use store
+alert table orders 
+add turkiorder int;
+use store
+alter table products
+add turkiproducts varchar(225);
+use store;
+alert table order_prudocts
+add opturki int;
+use store;
+update countries
+set degree_turki=2
+where id =111;
+select*from countries;
+use store
+delete from  products where id=5;
+select *from product;
